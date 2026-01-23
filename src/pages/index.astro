@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import About from "@components/About.astro";
+import CV from "@components/CV.astro";
+import Contact from "@components/Contact.astro";
+
+const experiences = [
+  {
+    company: "Společnost A",
+    role: "Senior Developer",
+    period: "2020 - dosud",
+    description:
+      "Vývoj webových aplikací, práce s moderními technologiemi a vedení menšího týmu.",
+  },
+  {
+    company: "Společnost B",
+    role: "Full Stack Developer",
+    period: "2017 - 2020",
+    description:
+      "Návrh a implementace komplexních webových řešení pro různé klienty.",
+  },
+  {
+    company: "Společnost C",
+    role: "Junior Developer",
+    period: "2015 - 2017",
+    description: "Počátek kariéry v IT, učení se základům vývoje softwaru.",
+  },
+];
+---
+
+<BaseLayout title="Radek Šmiga">
+  <Hero
+    name="Radek Šmiga"
+    tagline="Programátor T-SQL, linuxový nadšenec a síťař srdcem"
+  />
+
+  <About
+    text="Jsem student závěrečného ročníku informatiky na VŠB se zálibou v programování, správě sítí a osvojení nových technologií. Během studií jsem se seznámil s širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a NodeJS, a také s různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s linuxovými systémy a jejich správě.Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a řešení incidentů. Poslední rok pracuji v české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a procedur využívaných v produkčním prostředí."
+  />
+
+  <CV experiences={experiences} />
+
+  <Contact email="radek@example.com" />
+</BaseLayout>
