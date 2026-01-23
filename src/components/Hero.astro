@@ -7,8 +7,23 @@ interface Props {
 const { name, tagline } = Astro.props;
 ---
 
-<section class="flex min-h-[80vh] items-center justify-center px-4">
-  <div class="text-center">
+<section class="relative flex min-h-[80vh] items-center justify-center px-4">
+  <!-- Background image -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('https://picsum.photos/1920/1080?grayscale');"
+  >
+  </div>
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center">
+    <img
+      src="/public/images/profile_picture.jpg"
+      alt={`Fotka ${name}`}
+      class="mx-auto mb-6 h-32 w-32 rounded-full border-4 border-gray-200 object-cover shadow-lg sm:h-40 sm:w-40 dark:border-gray-700"
+    />
     <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
       {name}
     </h1>
