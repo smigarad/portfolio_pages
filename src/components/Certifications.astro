@@ -1,0 +1,21 @@
+---
+interface Props {
+  certifications: string[];
+}
+
+const { certifications } = Astro.props;
+---
+
+<section id="certifications" class="bg-gray-50 py-16 dark:bg-gray-800">
+  <div class="mx-auto max-w-4xl px-4">
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Certifikace</h2>
+    <ul class="space-y-3">
+      {certifications.map((cert) => (
+        <li class="flex items-center text-gray-600 dark:text-gray-300">
+          <span class="mr-3 text-green-500">✓</span>
+          {cert}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
