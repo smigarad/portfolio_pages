@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import About from "@components/About.astro";
+import CV from "@components/CV.astro";
+import Education from "@components/Education.astro";
+import Certifications from "@components/Certifications.astro";
+import Contact from "@components/Contact.astro";
+
+const experiences = [
+  {
+    company: "KVADOS, a.s.",
+    role: "SQL Developer",
+    period: "srpen 2024 - dosud",
+    description:
+      "Tvorba databázových funkcí a procedur v T-SQL využívaných v produkčním prostředí.",
+  },
+  {
+    company: "Verizon",
+    role: "Stážista",
+    period: "duben 2023 - prosinec 2023",
+    description:
+      "Člen change control týmu. Práce s legacy, SDWAN (Viptela, Versa), Meraki a Junos zařízeními.",
+  },
+  {
+    company: "Tieto",
+    role: "Technical Specialist",
+    period: "červenec 2021 - prosinec 2021",
+    description: "Tier 2 v Networking týmu. Monitoring a uzavírání ticketů.",
+  },
+];
+
+const education = [
+  {
+    institution: "Vysoká škola báňská - Technická univerzita Ostrava",
+    degree: "Bakalář (Bc.)",
+    field: "Informatika",
+    period: "2021 - 2025",
+  },
+  {
+    institution: "Střední škola teleinformatiky, Ostrava",
+    degree: "Maturita",
+    field: "Telekomunikace",
+    period: "2017 - 2021",
+  },
+];
+
+const certifications = [
+  "CCNA R&S: Routing and Switching Essentials",
+  "CCNA R&S: Scaling Networks",
+];
+---
+
+<BaseLayout title="Radek Šmiga">
+  <Hero
+    name="Radek Šmiga"
+    tagline="Programátor T-SQL, linuxový nadšenec a síťař srdcem"
+  />
+
+  <About
+    text="Jsem student závěrečného ročníku informatiky na VŠB se zálibou v programování, správě sítí a osvojení nových technologií. Během studií jsem se seznámil s širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a NodeJS, a také s různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s linuxovými systémy a jejich správě.Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a řešení incidentů. Poslední rok pracuji v české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a procedur využívaných v produkčním prostředí."
+  />
+
+  <CV experiences={experiences} />
+
+  <Education education={education} />
+
+  <Certifications certifications={certifications} />
+
+  <Contact email="smigaradek0@gmail.com" />
+  <!-- <Contact linkedln="https://www.linkedin.com/in/radek-%C5%A1miga/" />
+  <Contact facebook="https://www.facebook.com/Oni.Michi" /> -->
+</BaseLayout>
