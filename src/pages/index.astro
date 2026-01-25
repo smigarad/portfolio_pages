@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import About from "@components/About.astro";
+import Skills from "@components/Skills.astro";
 import CV from "@components/CV.astro";
 import Education from "@components/Education.astro";
 import Certifications from "@components/Certifications.astro";
@@ -60,6 +61,8 @@ const certifications = [
   <About
     text="Jsem student závěrečného ročníku informatiky na VŠB se zálibou v programování, správě sítí a osvojení nových technologií. Během studií jsem se seznámil s širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a NodeJS, a také s různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s linuxovými systémy a jejich správě.Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a řešení incidentů. Poslední rok pracuji v české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a procedur využívaných v produkčním prostředí."
   />
+
+  <Skills />
 
   <CV experiences={experiences} />
 

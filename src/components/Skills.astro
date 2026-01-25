@@ -1,0 +1,54 @@
+---
+interface SkillCategory {
+  name: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: "Databaze",
+    skills: ["T-SQL", "PL/SQL"],
+  },
+  {
+    name: "Backend",
+    skills: ["C#", "Java", "Python"],
+  },
+  {
+    name: "Frontend",
+    skills: ["React", "Node.js", "Astro"],
+  },
+  {
+    name: "Networking",
+    skills: ["CCNA", "SDWAN", "Meraki", "Junos"],
+  },
+  {
+    name: "OS & Nastroje",
+    skills: ["Linux", "Git", "Docker"],
+  },
+];
+---
+
+<section id="skills" class="bg-gray-50 py-16 dark:bg-gray-800">
+  <div class="mx-auto max-w-4xl px-4">
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Dovednosti</h2>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        skillCategories.map((category) => (
+          <div class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-700">
+            <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+              {category.name}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span class="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-700 dark:bg-gray-600 dark:text-gray-200">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
