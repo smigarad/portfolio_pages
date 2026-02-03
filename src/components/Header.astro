@@ -1,26 +1,97 @@
 ---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
 const navLinks = [
-  { href: "#about", label: "O mně" },
-  { href: "#cv", label: "CV" },
-  { href: "#education", label: "Vzdělání" },
-  { href: "#certifications", label: "Certifikace" },
-  { href: "#contact", label: "Kontakt" },
+  { href: "#about", label: "O mně", i18nKey: "nav.about" },
+  { href: "#skills", label: "Dovednosti", i18nKey: "nav.skills" },
+  { href: "#projects", label: "Projekty", i18nKey: "nav.projects" },
+  { href: "#cv", label: "CV", i18nKey: "nav.cv" },
+  { href: "#contact", label: "Kontakt", i18nKey: "nav.contact" },
 ];
 ---
 
 <header class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/80">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-    <a href="/" class="text-xl font-bold text-gray-900 dark:text-white" aria-label="Domů">
+    <a href="/" class="text-xl font-bold text-gray-900 dark:text-white" aria-label="Domů" data-i18n-aria="nav.home">
       Radek Šmiga
     </a>
 
-    <ul class="flex gap-6">
+    <!-- Desktop navigace - skrytá na mobilu -->
+    <div class="hidden items-center gap-6 md:flex">
+      <ul class="flex gap-6">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                data-i18n={link.i18nKey}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ThemeSwitcher />
+    </div>
+
+    <!-- Hamburger tlačítko - jen mobil -->
+    <button
+      id="menu-button"
+      class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 md:hidden"
+      aria-label="Otevřít menu"
+      data-i18n-aria="nav.openMenu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobilní overlay - MIMO header pro správné fixed pozicování -->
+<div
+  id="overlay"
+  class="fixed inset-0 z-[60] hidden bg-black/50 transition-opacity duration-300"
+  aria-hidden="true"
+></div>
+
+<!-- Mobilní panel - MIMO header pro správné fixed pozicování -->
+<div
+  id="mobile-menu"
+  class="fixed right-0 top-0 z-[70] h-full w-64 translate-x-full transform bg-white transition-transform duration-300 ease-in-out dark:bg-gray-900"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigační menu"
+>
+  <div class="flex items-center justify-between border-b border-gray-200 px-4 py-4 dark:border-gray-700">
+    <span class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="nav.menu">Menu</span>
+    <div class="flex items-center gap-2">
+      <ThemeSwitcher />
+      <button
+        id="close-button"
+        class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+        aria-label="Zavřít menu"
+        data-i18n-aria="nav.closeMenu"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav class="px-4 py-6">
+    <ul class="flex flex-col gap-4">
       {
         navLinks.map((link) => (
           <li>
             <a
               href={link.href}
-              class="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+              class="block rounded-lg px-4 py-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+              data-i18n={link.i18nKey}
             >
               {link.label}
             </a>
@@ -29,4 +100,52 @@ const navLinks = [
       }
     </ul>
   </nav>
-</header>
+</div>
+
+<script>
+  function setupMobileMenu() {
+    const menuButton = document.getElementById('menu-button');
+    const closeButton = document.getElementById('close-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('overlay');
+
+    function openMenu() {
+      mobileMenu?.classList.remove('translate-x-full');
+      overlay?.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      menuButton?.setAttribute('aria-expanded', 'true');
+      closeButton?.focus();
+    }
+
+    function closeMenu() {
+      mobileMenu?.classList.add('translate-x-full');
+      overlay?.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.focus();
+    }
+
+    menuButton?.addEventListener('click', openMenu);
+    closeButton?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+
+    // Zavřít po kliknutí na odkaz
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Zavřít pomocí Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu?.classList.contains('translate-x-full')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Zajistit spuštění po načtení DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileMenu);
+  } else {
+    setupMobileMenu();
+  }
+</script>

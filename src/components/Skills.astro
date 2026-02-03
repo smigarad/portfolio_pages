@@ -2,41 +2,47 @@
 interface SkillCategory {
   name: string;
   skills: string[];
+  i18nKey: string;
 }
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Databaze",
+    name: "Databáze",
     skills: ["T-SQL", "PL/SQL"],
+    i18nKey: "skills.categories.database",
   },
   {
     name: "Backend",
     skills: ["C#", "Java", "Python"],
+    i18nKey: "skills.categories.backend",
   },
   {
     name: "Frontend",
     skills: ["React", "Node.js", "Astro"],
+    i18nKey: "skills.categories.frontend",
   },
   {
     name: "Networking",
     skills: ["CCNA", "SDWAN", "Meraki", "Junos"],
+    i18nKey: "skills.categories.networking",
   },
   {
-    name: "OS & Nastroje",
+    name: "OS & Nástroje",
     skills: ["Linux", "Git", "Docker"],
+    i18nKey: "skills.categories.tools",
   },
 ];
 ---
 
 <section id="skills" class="bg-gray-50 py-16 dark:bg-gray-800">
   <div class="mx-auto max-w-4xl px-4">
-    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Dovednosti</h2>
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white" data-i18n="skills.title">Dovednosti</h2>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         skillCategories.map((category) => (
           <div class="rounded-lg bg-white p-6 shadow-sm dark:bg-gray-700">
-            <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white" data-i18n={category.i18nKey}>
               {category.name}
             </h3>
             <div class="flex flex-wrap gap-2">

@@ -22,6 +22,8 @@ const { name, tagline } = Astro.props;
       src="/images/profile_picture.jpg"
       alt={`Fotka ${name}`}
       class="mx-auto mb-6 h-32 w-32 rounded-full border-4 border-gray-200 object-cover shadow-lg sm:h-40 sm:w-40 dark:border-gray-700"
+      data-i18n-alt="hero.photoAlt"
+      data-name={name}
     />
     <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
       {name}
@@ -34,12 +36,14 @@ const { name, tagline } = Astro.props;
       <a
         href="#contact"
         class="rounded-lg bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+        data-i18n="hero.contactMe"
       >
         Kontaktujte mě
       </a>
       <a
         href="#cv"
         class="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-900 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+        data-i18n="hero.viewCv"
       >
         Zobrazit CV
       </a>
@@ -63,7 +67,7 @@ const { name, tagline } = Astro.props;
             d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
           />
         </svg>
-        Stáhnout CV
+        <span data-i18n="hero.downloadCv">Stáhnout CV</span>
       </a>
     </div>
   </div>

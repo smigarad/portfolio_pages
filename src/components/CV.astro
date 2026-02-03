@@ -4,6 +4,7 @@ interface Experience {
   role: string;
   period: string;
   description: string;
+  i18nKey: string;
 }
 
 interface Props {
@@ -16,7 +17,7 @@ const { experiences } = Astro.props;
 <section id="cv" class="py-16">
   <div class="mx-auto max-w-4xl px-4">
     <div class="mb-8 flex items-center justify-between">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">CV</h2>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white" data-i18n="cv.title">CV</h2>
       <a
         href="/radek-smiga-cv.pdf"
         download
@@ -37,7 +38,7 @@ const { experiences } = Astro.props;
             d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
           />
         </svg>
-        Download PDF
+        <span data-i18n="cv.downloadPdf">Download PDF</span>
       </a>
     </div>
 
@@ -45,13 +46,13 @@ const { experiences } = Astro.props;
       {
         experiences.map((exp) => (
           <div class="border-l-2 border-gray-200 pl-6 dark:border-gray-700">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-i18n={`${exp.i18nKey}.role`}>
               {exp.role}
             </h3>
             <p class="mt-1 text-gray-600 dark:text-gray-400">
-              {exp.company} · {exp.period}
+              <span data-i18n={`${exp.i18nKey}.company`}>{exp.company}</span> · <span data-i18n={`${exp.i18nKey}.period`}>{exp.period}</span>
             </p>
-            <p class="mt-3 text-gray-600 dark:text-gray-300">{exp.description}</p>
+            <p class="mt-3 text-gray-600 dark:text-gray-300" data-i18n={`${exp.i18nKey}.description`}>{exp.description}</p>
           </div>
         ))
       }

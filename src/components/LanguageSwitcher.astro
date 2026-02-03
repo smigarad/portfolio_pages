@@ -1,0 +1,89 @@
+---
+// LanguageSwitcher component - toggles CZ/EN
+---
+
+<div
+  id="lang-switcher"
+  class="fixed right-4 top-20 z-50 flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 shadow-lg backdrop-blur-sm dark:bg-gray-800/90"
+>
+  <button
+    id="lang-cs"
+    type="button"
+    class="rounded-full px-2 py-0.5 text-sm font-medium transition-colors"
+    aria-label="Přepnout na češtinu"
+  >
+    CZ
+  </button>
+  <span class="text-gray-400 dark:text-gray-500">|</span>
+  <button
+    id="lang-en"
+    type="button"
+    class="rounded-full px-2 py-0.5 text-sm font-medium transition-colors"
+    aria-label="Switch to English"
+  >
+    EN
+  </button>
+</div>
+
+<script>
+  function setupLanguageSwitcher() {
+    const btnCs = document.getElementById('lang-cs');
+    const btnEn = document.getElementById('lang-en');
+
+    const STORAGE_KEY = 'lang';
+
+    function getLang(): 'cs' | 'en' {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored === 'cs' || stored === 'en') {
+        return stored;
+      }
+      const browserLang = navigator.language.toLowerCase();
+      return browserLang.startsWith('cs') ? 'cs' : 'en';
+    }
+
+    function updateButtons(lang: 'cs' | 'en') {
+      const activeClasses = ['bg-gray-900', 'text-white', 'dark:bg-white', 'dark:text-gray-900'];
+      const inactiveClasses = ['text-gray-600', 'hover:text-gray-900', 'dark:text-gray-400', 'dark:hover:text-white'];
+
+      if (btnCs && btnEn) {
+        if (lang === 'cs') {
+          btnCs.classList.remove(...inactiveClasses);
+          btnCs.classList.add(...activeClasses);
+          btnEn.classList.remove(...activeClasses);
+          btnEn.classList.add(...inactiveClasses);
+        } else {
+          btnEn.classList.remove(...inactiveClasses);
+          btnEn.classList.add(...activeClasses);
+          btnCs.classList.remove(...activeClasses);
+          btnCs.classList.add(...inactiveClasses);
+        }
+      }
+    }
+
+    function setLang(lang: 'cs' | 'en') {
+      localStorage.setItem(STORAGE_KEY, lang);
+      document.documentElement.lang = lang;
+      updateButtons(lang);
+      // Dispatch custom event for components to react
+      window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+    }
+
+    // Initialize
+    const currentLang = getLang();
+    document.documentElement.lang = currentLang;
+    updateButtons(currentLang);
+
+    btnCs?.addEventListener('click', () => setLang('cs'));
+    btnEn?.addEventListener('click', () => setLang('en'));
+  }
+
+  // Run on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
+  } else {
+    setupLanguageSwitcher();
+  }
+
+  // Re-run on Astro navigation
+  document.addEventListener('astro:after-swap', setupLanguageSwitcher);
+</script>

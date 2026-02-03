@@ -4,6 +4,7 @@ interface Education {
   degree: string;
   field: string;
   period: string;
+  i18nKey: string;
 }
 
 interface Props {
@@ -15,12 +16,14 @@ const { education } = Astro.props;
 
 <section id="education" class="py-16">
   <div class="mx-auto max-w-4xl px-4">
-    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Vzdělání</h2>
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white" data-i18n="education.title">Vzdělání</h2>
     <div class="space-y-6">
       {education.map((edu) => (
         <div class="border-l-2 border-gray-200 pl-6 dark:border-gray-700">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{edu.institution}</h3>
-          <p class="mt-1 text-gray-600 dark:text-gray-400">{edu.degree}, {edu.field} · {edu.period}</p>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white" data-i18n={`${edu.i18nKey}.institution`}>{edu.institution}</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-400">
+            <span data-i18n={`${edu.i18nKey}.degree`}>{edu.degree}</span>, <span data-i18n={`${edu.i18nKey}.field`}>{edu.field}</span> · <span data-i18n={`${edu.i18nKey}.period`}>{edu.period}</span>
+          </p>
         </div>
       ))}
     </div>
