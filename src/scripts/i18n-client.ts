@@ -57,7 +57,10 @@ function updateTranslations(lang: Language) {
     if (key) {
       const translation = getNestedValue(translations[lang], key);
       if (translation) {
-        el.setAttribute("alt", translation);
+        // Check if there's a data-name attribute to append
+        const name = el.getAttribute("data-name");
+        const altText = name ? `${translation} ${name}` : translation;
+        el.setAttribute("alt", altText);
       }
     }
   });

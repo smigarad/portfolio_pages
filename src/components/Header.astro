@@ -16,7 +16,7 @@ const navLinks = [
       Radek Šmiga
     </a>
 
-    <!-- Desktop navigace - skrytá na mobilu -->
+    <!-- Desktop navigation - hidden on mobile -->
     <div class="hidden items-center gap-6 md:flex">
       <ul class="flex gap-6">
         {
@@ -36,7 +36,7 @@ const navLinks = [
       <ThemeSwitcher />
     </div>
 
-    <!-- Hamburger tlačítko - jen mobil -->
+    <!-- Hamburger button - mobile only -->
     <button
       id="menu-button"
       class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 md:hidden"
@@ -52,14 +52,14 @@ const navLinks = [
   </nav>
 </header>
 
-<!-- Mobilní overlay - MIMO header pro správné fixed pozicování -->
+<!-- Mobile overlay - outside header for proper fixed positioning -->
 <div
   id="overlay"
   class="fixed inset-0 z-[60] hidden bg-black/50 transition-opacity duration-300"
   aria-hidden="true"
 ></div>
 
-<!-- Mobilní panel - MIMO header pro správné fixed pozicování -->
+<!-- Mobile panel - outside header for proper fixed positioning -->
 <div
   id="mobile-menu"
   class="fixed right-0 top-0 z-[70] h-full w-64 translate-x-full transform bg-white transition-transform duration-300 ease-in-out dark:bg-gray-900"
@@ -129,12 +129,12 @@ const navLinks = [
     closeButton?.addEventListener('click', closeMenu);
     overlay?.addEventListener('click', closeMenu);
 
-    // Zavřít po kliknutí na odkaz
+    // Close menu when clicking on a link
     mobileMenu?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
 
-    // Zavřít pomocí Escape
+    // Close menu with Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !mobileMenu?.classList.contains('translate-x-full')) {
         closeMenu();
@@ -142,7 +142,7 @@ const navLinks = [
     });
   }
 
-  // Zajistit spuštění po načtení DOM
+  // Ensure execution after DOM loads
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupMobileMenu);
   } else {

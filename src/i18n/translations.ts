@@ -1,5 +1,17 @@
 export const translations = {
   cs: {
+    // Meta
+    meta: {
+      description: "Osobní portfolio Radka Šmigy - SQL Developer, linuxový nadšenec a síťový inženýr",
+    },
+
+    // 404 page
+    notFound: {
+      title: "Stránka nenalezena",
+      message: "Omlouváme se, ale stránka, kterou hledáte, neexistuje.",
+      backHome: "Zpět na hlavní stránku",
+    },
+
     // Navigation
     nav: {
       about: "O mně",
@@ -16,6 +28,7 @@ export const translations = {
     // Hero section
     hero: {
       photoAlt: "Fotka",
+      tagline: "Programátor T-SQL, linuxový nadšenec a síťař srdcem",
       contactMe: "Kontaktujte mě",
       viewCv: "Zobrazit CV",
       downloadCv: "Stáhnout CV",
@@ -24,6 +37,7 @@ export const translations = {
     // About section
     about: {
       title: "O mně",
+      text: "Jsem student závěrečného ročníku informatiky na VŠB se zálibou v programování, správě sítí a osvojení nových technologií. Během studií jsem se seznámil s širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a NodeJS, a také s různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s linuxovými systémy a jejich správě. Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a řešení incidentů. Poslední rok pracuji v české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a procedur využívaných v produkčním prostředí.",
     },
 
     // Skills section
@@ -105,6 +119,10 @@ export const translations = {
     // Certifications section
     certifications: {
       title: "Certifikace",
+      items: [
+        "CCNA R&S: Routing and Switching Essentials",
+        "CCNA R&S: Scaling Networks",
+      ],
     },
 
     // Languages section
@@ -160,6 +178,18 @@ export const translations = {
   },
 
   en: {
+    // Meta
+    meta: {
+      description: "Personal portfolio of Radek Šmiga - SQL Developer, Linux enthusiast and network engineer",
+    },
+
+    // 404 page
+    notFound: {
+      title: "Page not found",
+      message: "Sorry, the page you are looking for does not exist.",
+      backHome: "Back to homepage",
+    },
+
     // Navigation
     nav: {
       about: "About",
@@ -176,6 +206,7 @@ export const translations = {
     // Hero section
     hero: {
       photoAlt: "Photo of",
+      tagline: "T-SQL Developer, Linux enthusiast and network engineer at heart",
       contactMe: "Contact me",
       viewCv: "View CV",
       downloadCv: "Download CV",
@@ -184,6 +215,7 @@ export const translations = {
     // About section
     about: {
       title: "About me",
+      text: "I am a final-year Computer Science student at VSB-TUO with a passion for programming, network administration, and learning new technologies. Throughout my studies, I have gained experience with a wide range of technologies – from database languages (PL/SQL, T-SQL) to backend languages (C#, Java) to modern frameworks like React and Node.js, as well as various software development methodologies. In my free time, I actively work with Linux systems and their administration. I had the opportunity to complete two internships at TietoEvry and Verizon, where I focused on network device management, customer communication, and incident resolution. For the past year, I have been working at Kvados, a Czech company, as a T-SQL developer, contributing to database functions and procedures used in production environments.",
     },
 
     // Skills section
@@ -265,6 +297,10 @@ export const translations = {
     // Certifications section
     certifications: {
       title: "Certifications",
+      items: [
+        "CCNA R&S: Routing and Switching Essentials",
+        "CCNA R&S: Scaling Networks",
+      ],
     },
 
     // Languages section
