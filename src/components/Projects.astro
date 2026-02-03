@@ -5,6 +5,8 @@ interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  i18nTitle: string;
+  i18nDesc: string;
 }
 
 const projects: Project[] = [
@@ -14,28 +16,32 @@ const projects: Project[] = [
       "Osobní portfolio stránka vytvořená pomocí moderních technologií. Responzivní design s podporou tmavého režimu.",
     technologies: ["Astro", "TailwindCSS", "TypeScript"],
     githubUrl: "https://github.com/radeksm/portfolio_pages",
+    i18nTitle: "projects.portfolio.title",
+    i18nDesc: "projects.portfolio.description",
   },
   {
     title: "Připravované projekty",
     description:
       "Další projekty budou brzy přidány. Sledujte můj GitHub pro nejnovější aktualizace.",
     technologies: ["Coming Soon"],
+    i18nTitle: "projects.upcoming.title",
+    i18nDesc: "projects.upcoming.description",
   },
 ];
 ---
 
 <section id="projects" class="py-16">
   <div class="mx-auto max-w-4xl px-4">
-    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Projekty</h2>
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white" data-i18n="projects.title">Projekty</h2>
 
     <div class="grid gap-6 md:grid-cols-2">
       {
         projects.map((project) => (
           <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+            <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white" data-i18n={project.i18nTitle}>
               {project.title}
             </h3>
-            <p class="mb-4 text-gray-600 dark:text-gray-300">
+            <p class="mb-4 text-gray-600 dark:text-gray-300" data-i18n={project.i18nDesc}>
               {project.description}
             </p>
             <div class="mb-4 flex flex-wrap gap-2">

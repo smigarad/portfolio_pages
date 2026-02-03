@@ -3,6 +3,7 @@ interface Language {
   name: string;
   level: string;
   description: string;
+  i18nKey: string;
 }
 
 const languages: Language[] = [
@@ -10,24 +11,26 @@ const languages: Language[] = [
     name: "Čeština",
     level: "Rodilý mluvčí",
     description: "Mateřský jazyk",
+    i18nKey: "languages.items.czech",
   },
   {
     name: "Angličtina",
     level: "B2",
     description: "Upper-Intermediate",
+    i18nKey: "languages.items.english",
   },
 ];
 ---
 
 <section id="languages" class="py-16">
   <div class="mx-auto max-w-4xl px-4">
-    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Jazyky</h2>
+    <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white" data-i18n="languages.title">Jazyky</h2>
     <ul class="space-y-4">
       {languages.map((lang) => (
         <li class="flex items-center justify-between border-l-2 border-gray-200 py-2 pl-6 dark:border-gray-700">
-          <span class="text-lg font-medium text-gray-900 dark:text-white">{lang.name}</span>
+          <span class="text-lg font-medium text-gray-900 dark:text-white" data-i18n={`${lang.i18nKey}.name`}>{lang.name}</span>
           <span class="rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-            {lang.level} · {lang.description}
+            <span data-i18n={`${lang.i18nKey}.level`}>{lang.level}</span> · <span data-i18n={`${lang.i18nKey}.description`}>{lang.description}</span>
           </span>
         </li>
       ))}
