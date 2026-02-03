@@ -22,3 +22,11 @@ Proactively invoke the Skill tool with appropriate superpowers skills rather tha
 The `main` branch is **read-only**. Never push directly to main.
 
 All work must be done on feature branches.
+
+### Merging to Main
+
+Never merge to main directly via CLI (`git merge`). Always use Pull Requests through GitHub (`gh pr create` + `gh pr merge`).
+
+### Commit Messages
+
+Never use `Co-Authored-By` lines in commits.
