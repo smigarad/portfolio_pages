@@ -12,6 +12,13 @@ export const translations = {
       backHome: "Zpět na hlavní stránku",
     },
 
+    // Success page
+    success: {
+      title: "Zpráva odeslána",
+      message: "Děkuji za vaši zprávu. Ozvu se vám co nejdříve.",
+      backHome: "Zpět na hlavní stránku",
+    },
+
     // Navigation
     nav: {
       about: "O mně",
@@ -37,7 +44,7 @@ export const translations = {
     // About section
     about: {
       title: "O mně",
-      text: "Jsem student závěrečného ročníku informatiky na VŠB se zálibou v programování, správě sítí a osvojení nových technologií. Během studií jsem se seznámil s širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a NodeJS, a také s různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s linuxovými systémy a jejich správě. Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a řešení incidentů. Poslední rok pracuji v české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a procedur využívaných v produkčním prostředí.",
+      text: "Jsem student závěrečného ročníku informatiky na VŠB se zálibou v\u00A0programování, správě sítí a\u00A0osvojení nových technologií. Během studií jsem se seznámil s\u00A0širokou škálou technologií – od databázových jazyků (PLSQL, T-SQL) přes backendové jazyky (C#, JAVA) až po moderní frameworky, jako jsou React a\u00A0NodeJS, a\u00A0také s\u00A0různými metodikami vývoje software. Ve volném čase se aktivně věnuji práci s\u00A0linuxovými systémy a\u00A0jejich správě. Měl jsem příležitost absolvovat dvě stáže ve firmách TietoEvry a\u00A0Verizon, kde jsem se zaměřil na správu síťových prvků, komunikaci se zákazníky a\u00A0řešení incidentů. Poslední rok pracuji v\u00A0české firmě Kvados jako programátor T-SQL, kde se podílím na tvorbě databázových funkcí a\u00A0procedur využívaných v\u00A0produkčním prostředí.",
     },
 
     // Skills section
@@ -59,7 +66,7 @@ export const translations = {
       portfolio: {
         title: "Portfolio Website",
         description:
-          "Osobní portfolio stránka vytvořená pomocí moderních technologií. Responzivní design s podporou tmavého režimu.",
+          "Osobní portfolio stránka vytvořená pomocí moderních technologií. Responzivní design s\u00A0podporou tmavého režimu.",
       },
       upcoming: {
         title: "Připravované projekty",
@@ -78,21 +85,21 @@ export const translations = {
           role: "SQL Developer",
           period: "srpen 2024 - dosud",
           description:
-            "Vývoj a optimalizace uložených procedur a funkcí v T-SQL pro produkční databázové systémy. Spolupráce s vývojovým týmem na návrhu databázové architektury a optimalizaci výkonu dotazů. Aktivní účast na code review a dodržování best practices při vývoji.",
+            "Vývoj a\u00A0optimalizace uložených procedur a\u00A0funkcí v\u00A0T-SQL pro produkční databázové systémy. Spolupráce s\u00A0vývojovým týmem na návrhu databázové architektury a\u00A0optimalizaci výkonu dotazů. Aktivní účast na code review a\u00A0dodržování best practices při vývoji.",
         },
         verizon: {
           company: "Verizon",
           role: "Stážista",
           period: "duben 2023 - prosinec 2023",
           description:
-            "Člen change control týmu zodpovědný za správu a koordinaci změn v síťové infrastruktuře. Práce s SDWAN technologiemi (Viptela, Versa) a správa síťových zařízení včetně Meraki a Junos. Komunikace se zákazníky a interními týmy při řešení požadavků na změny v legacy i moderních systémech.",
+            "Člen change control týmu zodpovědný za správu a\u00A0koordinaci změn v\u00A0síťové infrastruktuře. Práce s\u00A0SDWAN technologiemi (Viptela, Versa) a\u00A0správa síťových zařízení včetně Meraki a\u00A0Junos. Komunikace se zákazníky a\u00A0interními týmy při řešení požadavků na změny v\u00A0legacy i\u00A0moderních systémech.",
         },
         tieto: {
           company: "Tieto",
           role: "Technical Specialist",
           period: "červenec 2021 - prosinec 2021",
           description:
-            "Tier 2 podpora v síťovém týmu zaměřená na řešení eskalovaných incidentů. Práce s monitorovacími systémy pro sledování stavu síťové infrastruktury. Analýza a řešení síťových problémů, správa ticketů a dokumentace řešení.",
+            "Tier 2 podpora v\u00A0síťovém týmu zaměřená na řešení eskalovaných incidentů. Práce s\u00A0monitorovacími systémy pro sledování stavu síťové infrastruktury. Analýza a\u00A0řešení síťových problémů, správa ticketů a\u00A0dokumentace řešení.",
         },
       },
     },
@@ -105,7 +112,7 @@ export const translations = {
           institution: "Vysoká škola báňská - Technická univerzita Ostrava",
           degree: "Bakalář (Bc.)",
           field: "Informatika",
-          period: "2021 - 2025",
+          period: "2021 - 2026 (doposud)",
         },
         sst: {
           institution: "Střední škola teleinformatiky, Ostrava",
@@ -145,7 +152,7 @@ export const translations = {
     // Contact section
     contact: {
       title: "Kontakt",
-      intro: "Máte zájem o spolupráci? Neváhejte mě kontaktovat.",
+      intro: "Máte zájem o\u00A0spolupráci? Neváhejte mě kontaktovat.",
       form: {
         name: "Jméno",
         namePlaceholder: "Vaše jméno",
@@ -187,6 +194,13 @@ export const translations = {
     notFound: {
       title: "Page not found",
       message: "Sorry, the page you are looking for does not exist.",
+      backHome: "Back to homepage",
+    },
+
+    // Success page
+    success: {
+      title: "Message sent",
+      message: "Thank you for your message. I will get back to you as soon as possible.",
       backHome: "Back to homepage",
     },
 
@@ -283,7 +297,7 @@ export const translations = {
           institution: "VSB - Technical University of Ostrava",
           degree: "Bachelor (Bc.)",
           field: "Computer Science",
-          period: "2021 - 2025",
+          period: "2021 - 2026 (present)",
         },
         sst: {
           institution: "Secondary School of Teleinformatics, Ostrava",
