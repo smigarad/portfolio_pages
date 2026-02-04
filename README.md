@@ -1,7 +1,5 @@
 # Portfolio - Radek Šmiga
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 Osobní prezentační web s portfoliem, životopisem a kontaktními informacemi.
 
 ## O projektu
@@ -43,6 +41,6 @@ npm run dev
 
 Web poběží na adrese http://localhost:4321
 
-## License
+## Copyright
 
-Tento projekt je licencován pod [MIT licencí](LICENSE).
+© 2025 Radek Šmiga. Všechna práva vyhrazena.
