@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Message Sent">
+  <section class="flex min-h-[80vh] items-center justify-center px-4">
+    <div class="text-center">
+      <div class="mb-6 text-6xl">
+        <svg
+          class="mx-auto h-20 w-20 text-green-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </div>
+      <h1
+        class="mb-4 text-3xl font-bold text-gray-900 dark:text-white"
+        data-i18n="success.title"
+      >
+        Zpráva odeslána
+      </h1>
+      <p
+        class="mb-8 text-lg text-gray-600 dark:text-gray-300"
+        data-i18n="success.message"
+      >
+        Děkuji za vaši zprávu. Ozvu se vám co nejdříve.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-6 py-3 font-medium text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+        data-i18n="success.backHome"
+      >
+        Zpět na hlavní stránku
+      </a>
+    </div>
+  </section>
+</BaseLayout>

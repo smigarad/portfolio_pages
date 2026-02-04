@@ -1,9 +1,4 @@
 ---
-interface Props {
-  email: string;
-}
-
-const { email } = Astro.props;
 ---
 
 <section id="contact" class="bg-gray-50 py-16 dark:bg-gray-800">
@@ -16,19 +11,10 @@ const { email } = Astro.props;
       </p>
 
       <form
-        name="contact"
+        action="/api/contact"
         method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        class="mb-8 space-y-6"
+        class="space-y-6"
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
-
         <div>
           <label
             for="name"
@@ -94,32 +80,6 @@ const { email } = Astro.props;
           Odeslat zprávu
         </button>
       </form>
-
-      <div class="border-t border-gray-200 pt-6 dark:border-gray-700">
-        <p class="mb-3 text-sm text-gray-500 dark:text-gray-400" data-i18n="contact.directContact">
-          Nebo mě kontaktujte přímo:
-        </p>
-        <a
-          href={`mailto:${email}`}
-          class="inline-flex items-center gap-2 text-lg font-medium text-gray-900 transition-colors hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
-        >
-          <svg
-            class="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-            />
-          </svg>
-          {email}
-        </a>
-      </div>
     </div>
   </div>
 </section>
