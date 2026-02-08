@@ -182,6 +182,27 @@ export const translations = {
     lang: {
       switch: "Přepnout jazyk",
     },
+
+    // CV Page
+    cvPage: {
+      title: "CV - Radek Šmiga",
+      print: "Tisk / Uložit PDF",
+      backToPortfolio: "Zpět na portfolio",
+      profile: {
+        title: "Profil",
+        text: "Student informatiky na VŠB-TUO. Zkušenosti s\u00A0T-SQL, C#, Java a\u00A0moderními frameworky. Aktuálně T-SQL Developer ve firmě KVADOS.",
+      },
+      sections: {
+        experience: "Pracovní zkušenosti",
+        education: "Vzdělání",
+        skills: "Dovednosti",
+        languages: "Jazyky",
+        certifications: "Certifikace",
+      },
+      contact: {
+        location: "Ostrava, Česká republika",
+      },
+    },
   },
 
   en: {
@@ -366,6 +387,27 @@ export const translations = {
     // Language switcher
     lang: {
       switch: "Switch language",
+    },
+
+    // CV Page
+    cvPage: {
+      title: "CV - Radek Šmiga",
+      print: "Print / Save PDF",
+      backToPortfolio: "Back to portfolio",
+      profile: {
+        title: "Profile",
+        text: "Computer Science student at VSB-TUO. Experience with T-SQL, C#, Java and modern frameworks. Currently T-SQL Developer at KVADOS.",
+      },
+      sections: {
+        experience: "Work Experience",
+        education: "Education",
+        skills: "Skills",
+        languages: "Languages",
+        certifications: "Certifications",
+      },
+      contact: {
+        location: "Ostrava, Czech Republic",
+      },
     },
   },
 } as const;

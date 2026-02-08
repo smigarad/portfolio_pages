@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  i18nKey: string;
+}
+
+const { title, i18nKey } = Astro.props;
+---
+
+<section class="cv-section mb-6">
+  <h2
+    class="mb-4 border-b border-gray-200 pb-2 text-lg font-bold uppercase tracking-wide text-gray-900 dark:border-gray-700 dark:text-white print:border-gray-300 print:text-base"
+    data-i18n={i18nKey}
+  >
+    {title}
+  </h2>
+  <slot />
+</section>
