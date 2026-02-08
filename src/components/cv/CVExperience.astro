@@ -1,0 +1,38 @@
+---
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  i18nKey: string;
+}
+
+interface Props {
+  experiences: Experience[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<div class="space-y-4">
+  {
+    experiences.map((exp) => (
+      <div class="border-l-2 border-gray-300 pl-4 dark:border-gray-600 print:border-gray-400">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`${exp.i18nKey}.role`}>
+            {exp.role}
+          </h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n={`${exp.i18nKey}.period`}>
+            {exp.period}
+          </span>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n={`${exp.i18nKey}.company`}>
+          {exp.company}
+        </p>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300 print:text-gray-700" data-i18n={`${exp.i18nKey}.description`}>
+          {exp.description}
+        </p>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,55 @@
+---
+interface Language {
+  name: string;
+  level: string;
+  i18nKey: string;
+}
+
+const languages: Language[] = [
+  {
+    name: "Čeština",
+    level: "Rodilý mluvčí",
+    i18nKey: "languages.items.czech",
+  },
+  {
+    name: "Angličtina",
+    level: "B2",
+    i18nKey: "languages.items.english",
+  },
+];
+
+const certifications = [
+  "CCNA R&S: Routing and Switching Essentials",
+  "CCNA R&S: Scaling Networks",
+];
+---
+
+<div class="space-y-4">
+  <!-- Languages -->
+  <div>
+    <h4 class="text-sm font-semibold text-gray-900 dark:text-white" data-i18n="cvPage.sections.languages">
+      Jazyky
+    </h4>
+    <ul class="mt-1 space-y-1 text-sm text-gray-600 dark:text-gray-300">
+      {
+        languages.map((lang) => (
+          <li>
+            <span data-i18n={`${lang.i18nKey}.name`}>{lang.name}</span>
+            {" - "}
+            <span class="text-gray-500 dark:text-gray-400" data-i18n={`${lang.i18nKey}.level`}>{lang.level}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Certifications -->
+  <div>
+    <h4 class="text-sm font-semibold text-gray-900 dark:text-white" data-i18n="cvPage.sections.certifications">
+      Certifikace
+    </h4>
+    <ul class="mt-1 space-y-1 text-sm text-gray-600 dark:text-gray-300">
+      {certifications.map((cert) => <li>{cert}</li>)}
+    </ul>
+  </div>
+</div>

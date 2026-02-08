@@ -1,0 +1,35 @@
+---
+interface School {
+  institution: string;
+  degree: string;
+  field: string;
+  period: string;
+  i18nKey: string;
+}
+
+interface Props {
+  schools: School[];
+}
+
+const { schools } = Astro.props;
+---
+
+<div class="space-y-4">
+  {
+    schools.map((school) => (
+      <div class="border-l-2 border-gray-300 pl-4 dark:border-gray-600 print:border-gray-400">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`${school.i18nKey}.institution`}>
+            {school.institution}
+          </h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n={`${school.i18nKey}.period`}>
+            {school.period}
+          </span>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          <span data-i18n={`${school.i18nKey}.degree`}>{school.degree}</span> - <span data-i18n={`${school.i18nKey}.field`}>{school.field}</span>
+        </p>
+      </div>
+    ))
+  }
+</div>

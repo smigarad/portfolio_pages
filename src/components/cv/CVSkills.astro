@@ -1,0 +1,54 @@
+---
+interface SkillCategory {
+  name: string;
+  skills: string[];
+  i18nKey: string;
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: "Databáze",
+    skills: ["T-SQL", "PL/SQL"],
+    i18nKey: "skills.categories.database",
+  },
+  {
+    name: "Backend",
+    skills: ["C#", "Java", "Python", "Node.js"],
+    i18nKey: "skills.categories.backend",
+  },
+  {
+    name: "Frontend",
+    skills: ["React", "Astro"],
+    i18nKey: "skills.categories.frontend",
+  },
+  {
+    name: "Networking",
+    skills: ["CCNA", "SDWAN", "Meraki", "Junos"],
+    i18nKey: "skills.categories.networking",
+  },
+  {
+    name: "OS & Nástroje",
+    skills: ["Linux", "Git", "Docker"],
+    i18nKey: "skills.categories.tools",
+  },
+];
+---
+
+<div class="space-y-3">
+  {
+    skillCategories.map((category) => (
+      <div>
+        <h4 class="text-sm font-semibold text-gray-900 dark:text-white" data-i18n={category.i18nKey}>
+          {category.name}
+        </h4>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          {category.skills.map((skill) => (
+            <span class="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-700 dark:bg-gray-700 dark:text-gray-300 print:border print:border-gray-300 print:bg-transparent">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>

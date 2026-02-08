@@ -1,0 +1,88 @@
+---
+import CVPageLayout from "@/layouts/CVPageLayout.astro";
+import CVHeader from "@/components/cv/CVHeader.astro";
+import CVSection from "@/components/cv/CVSection.astro";
+import CVExperience from "@/components/cv/CVExperience.astro";
+import CVEducation from "@/components/cv/CVEducation.astro";
+import CVSkills from "@/components/cv/CVSkills.astro";
+import CVLanguages from "@/components/cv/CVLanguages.astro";
+
+const experiences = [
+  {
+    company: "KVADOS, a.s.",
+    role: "SQL Developer",
+    period: "srpen 2024 - dosud",
+    description:
+      "Vývoj a optimalizace uložených procedur a funkcí v T-SQL pro produkční databázové systémy. Spolupráce s vývojovým týmem na návrhu databázové architektury a optimalizaci výkonu dotazů.",
+    i18nKey: "cv.experiences.kvados",
+  },
+  {
+    company: "Verizon",
+    role: "Stážista",
+    period: "duben 2023 - prosinec 2023",
+    description:
+      "Člen change control týmu zodpovědný za správu a koordinaci změn v síťové infrastruktuře. Práce s SDWAN technologiemi a správa síťových zařízení.",
+    i18nKey: "cv.experiences.verizon",
+  },
+  {
+    company: "Tieto",
+    role: "Technical Specialist",
+    period: "červenec 2021 - prosinec 2021",
+    description:
+      "Tier 2 podpora v síťovém týmu zaměřená na řešení eskalovaných incidentů. Práce s monitorovacími systémy a správa ticketů.",
+    i18nKey: "cv.experiences.tieto",
+  },
+];
+
+const schools = [
+  {
+    institution: "Vysoká škola báňská - Technická univerzita Ostrava",
+    degree: "Bakalář (Bc.)",
+    field: "Informatika",
+    period: "2021 - 2026 (doposud)",
+    i18nKey: "education.schools.vsb",
+  },
+  {
+    institution: "Střední škola teleinformatiky, Ostrava",
+    degree: "Maturita",
+    field: "Telekomunikace",
+    period: "2017 - 2021",
+    i18nKey: "education.schools.sst",
+  },
+];
+---
+
+<CVPageLayout title="CV - Radek Šmiga">
+  <CVHeader
+    name="Radek Šmiga"
+    title="Programátor T-SQL, linuxový nadšenec a síťař srdcem"
+  />
+
+  <!-- Profile -->
+  <CVSection title="Profil" i18nKey="cvPage.profile.title">
+    <p class="text-sm text-gray-600 dark:text-gray-300" data-i18n="cvPage.profile.text">
+      Student informatiky na VŠB-TUO. Zkušenosti s T-SQL, C#, Java a moderními frameworky. Aktuálně T-SQL Developer ve firmě KVADOS.
+    </p>
+  </CVSection>
+
+  <!-- Work Experience -->
+  <CVSection title="Pracovní zkušenosti" i18nKey="cvPage.sections.experience">
+    <CVExperience experiences={experiences} />
+  </CVSection>
+
+  <!-- Education -->
+  <CVSection title="Vzdělání" i18nKey="cvPage.sections.education">
+    <CVEducation schools={schools} />
+  </CVSection>
+
+  <!-- Two-column layout for Skills and Languages -->
+  <div class="grid gap-6 md:grid-cols-2 print:grid-cols-2">
+    <CVSection title="Dovednosti" i18nKey="cvPage.sections.skills">
+      <CVSkills />
+    </CVSection>
+
+    <CVSection title="Jazyky a Certifikace" i18nKey="cvPage.sections.languages">
+      <CVLanguages />
+    </CVSection>
+  </div>
+</CVPageLayout>
